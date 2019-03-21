@@ -4,12 +4,12 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.yx.annotation.Bean;
 import org.yx.annotation.Box;
-import org.yx.http.filter.AbstractSessionFilter;
-import org.yx.http.filter.LoginObject;
-import org.yx.http.filter.SessionObject;
+import org.yx.http.user.AbstractSessionFilter;
+import org.yx.http.user.LoginObject;
+import org.yx.http.user.SessionObject;
 import org.yx.log.Log;
 
-//登录
+//登录,http://localhost:8081/login?username=admin&password=123456&code=9999
 @Bean
 public class MyLoginServlet extends AbstractSessionFilter {
 

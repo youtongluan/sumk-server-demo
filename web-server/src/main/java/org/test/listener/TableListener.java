@@ -25,7 +25,7 @@ public class TableListener implements DBListener<InsertEvent> {
 		try {
 			PojoMeta pm = PojoMetaHolder.getTableMeta(event.getTable());
 			List<Map<String, Object>> list = event.getPojos();
-			if (pm == null || pm.isNoCache() || list == null) {
+			if (pm == null || list == null) {
 				return;
 			}
 			for (Map<String, Object> map : list) {
@@ -34,12 +34,6 @@ public class TableListener implements DBListener<InsertEvent> {
 		} catch (Exception e) {
 			Log.get(this.getClass()).error(e.toString(),e);
 		}
-	}
-
-	//无意义，下个版本将取消
-	@Override
-	public String[] getTags() {
-		return null;
 	}
 
 }
