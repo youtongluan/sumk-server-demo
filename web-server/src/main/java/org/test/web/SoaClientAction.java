@@ -10,7 +10,12 @@ import org.yx.db.DB;
 import org.yx.log.Log;
 import org.yx.rpc.client.Rpc;
 import org.yx.util.GsonUtil;
-
+/*
+ * 因为下列接口使用了微服务，要访问下列接口，需要做以下操作：
+ * 1、启动zookeeper
+ * 2、启动rpc-server
+ * 3、去掉soa.client.start和sumk.zkurl的注释，然后启动Bootstrap
+ */
 @Bean
 public class SoaClientAction {
 
