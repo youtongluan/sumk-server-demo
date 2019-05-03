@@ -1,5 +1,9 @@
 package org.test.web;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.test.pojo.Student;
 import org.yx.annotation.Bean;
 import org.yx.annotation.Box;
@@ -7,6 +11,7 @@ import org.yx.annotation.Param;
 import org.yx.annotation.http.Web;
 import org.yx.conf.AppInfo;
 import org.yx.db.DB;
+import org.yx.db.mapper.SDB;
 import org.yx.redis.RedisPool;
 import org.yx.util.SumkDate;
 
@@ -31,6 +36,14 @@ public class DemoAction {
 		return user;
 	}
 	
+	// http://localhost:8081/rest/selectByIds?data={"ids":[1,2]}
+	@Web
+	@Box
+	public List<Map<String, Object>> selectByIds(List<Long> ids){
+		Map<String,Object> map=new HashMap<>();
+		map.put("ids", ids);
+		return SDB.list("student.selectByIds", map);
+	}
 	/*
 	 * 访问地址：http://localhost:8081/rest/appInfo?data={"name":"test"}
 	 * 在app.properties中修改test的值，过会儿再访问上述地址，可以看到返回值变化
