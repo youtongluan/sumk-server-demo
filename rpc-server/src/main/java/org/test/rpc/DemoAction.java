@@ -7,7 +7,7 @@ import org.yx.annotation.Bean;
 import org.yx.annotation.Param;
 import org.yx.annotation.rpc.Soa;
 import org.yx.log.Log;
-import org.yx.util.JsonUtil;
+import org.yx.util.S;
 import org.yx.util.SeqUtil;
 
 @Bean
@@ -22,7 +22,7 @@ public class DemoAction {
 	public Student fillStudent(Student student) {
 		student.setId(SeqUtil.next());
 		student.setLastUpdate(new Date());
-		Log.get(this.getClass()).info(JsonUtil.toJson(student));
+		Log.get(this.getClass()).info(S.json.toJson(student));
 		return student;
 	}
 	

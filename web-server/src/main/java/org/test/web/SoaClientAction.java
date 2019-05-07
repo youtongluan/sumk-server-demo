@@ -9,7 +9,7 @@ import org.yx.annotation.http.Web;
 import org.yx.db.DB;
 import org.yx.log.Log;
 import org.yx.rpc.client.Rpc;
-import org.yx.util.JsonUtil;
+import org.yx.util.S;
 /*
  * 因为下列接口使用了微服务，要访问下列接口，需要做以下操作：
  * 1、启动zookeeper
@@ -30,7 +30,7 @@ public class SoaClientAction {
 		String ret = Rpc.create("fillStudent").callback(r -> {
 			Log.get(SoaClientAction.class).info("rpc返回的结果是:{}", r.json());
 		}).paramInArray(student).execute().getOrException();
-		Student s2 = JsonUtil.fromJson(ret, Student.class);
+		Student s2 = S.json.fromJson(ret, Student.class);
 		Log.get(this.getClass()).info("rpc返回的结果是:{}", ret);
 		DB.insert(s2).execute();
 		return s2;
@@ -40,6 +40,6 @@ public class SoaClientAction {
 	@Web
 	public String echoFromRpc(String name) {
 		String ret = Rpc.call("echo", name);
-		return JsonUtil.fromJson(ret, String.class);
+		return S.json.fromJson(ret, String.class);
 	}
 }
