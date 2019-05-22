@@ -1,6 +1,5 @@
 <?xml version="1.0"?> 
-<!-- 开启这个dtd会造成启动变慢，会从网络上去加载这个文件。下个版本修复这个问题 -->
-<!-- <!DOCTYPE sdb SYSTEM "https://youtongluan.github.io/sumk/sql.dtd"> -->
+<!DOCTYPE sdb SYSTEM "https://youtongluan.github.io/sumk/sql.dtd">
 <sdb namespace="student">
 <sql id="select">
 	select id,name,age,last_update as lastUpdate from student where 1=1

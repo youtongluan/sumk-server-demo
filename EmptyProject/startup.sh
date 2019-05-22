@@ -1,6 +1,6 @@
 #! /bin/bash
 opp="-Xmx256m -Xss256k"
-main_class=org.test.Bootstrap
+main_class=org.yx.main.SumkServer
 
 
 DIR="$( cd "$( dirname "$0"  )" && pwd  )"

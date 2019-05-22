@@ -3,7 +3,7 @@ setlocal enabledelayedexpansion
 echo off
 
 rem arguments
-set main_class=org.test.Bootstrap
+set main_class=org.yx.main.SumkServer
 set java=java
 set opt=-Xmx1024m -Xss256k
 
