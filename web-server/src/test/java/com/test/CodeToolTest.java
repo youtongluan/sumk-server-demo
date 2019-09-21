@@ -6,6 +6,7 @@ import org.yx.sumk.code.CodeTool;
 
 public class CodeToolTest {
 
+	
 	//要在bean生成之后
 	@Test
 	public void generateDao(){
