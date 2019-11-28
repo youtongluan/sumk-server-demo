@@ -13,7 +13,7 @@ import org.yx.util.SeqUtil;
 @Bean
 public class DemoAction {
 
-	@Soa
+	@Soa("a.b.c")
 	public String echo(@Param(required=true,cnName="名字") String name) {
 		return "你好 "+name;
 	}

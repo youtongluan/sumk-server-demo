@@ -5,6 +5,7 @@ if [ ! -f "$DIR/app.pid" ]; then
  exit 1
 fi
 pid="$( cat "$DIR"/app.pid )"
-kill -9 $pid
+#or kill -9 $pid
+kill $pid
 rm -rf $DIR/app.pid
 ps -ef |grep $pid

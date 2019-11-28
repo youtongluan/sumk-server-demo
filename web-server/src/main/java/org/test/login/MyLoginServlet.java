@@ -25,8 +25,7 @@ public class MyLoginServlet extends AbstractLoginServlet {
 			SessionObject so = new SessionObject();
 			so.setLoginTime(System.currentTimeMillis());
 			so.setUserId("admin");
-			this.userSession().setSession(token, so);
-			return LoginObject.success(null, so.getUserId());
+			return LoginObject.success(null, so);
 		}
 
 		return LoginObject.error("用户名或密码错误");

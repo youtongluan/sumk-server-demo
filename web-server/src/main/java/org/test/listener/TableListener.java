@@ -5,7 +5,7 @@ import java.util.Map;
 
 import org.yx.annotation.Bean;
 import org.yx.db.event.InsertEvent;
-import org.yx.db.listener.DBListener;
+import org.yx.db.listener.DBEventListener;
 import org.yx.db.sql.PojoMeta;
 import org.yx.db.sql.PojoMetaHolder;
 import org.yx.listener.SumkEvent;
@@ -13,15 +13,15 @@ import org.yx.log.Log;
 
 //监听数据表的变更
 @Bean
-public class TableListener implements DBListener<InsertEvent> {
+public class TableListener implements DBEventListener {
+
 
 	@Override
-	public boolean accept(SumkEvent event) {
-		return InsertEvent.class.isInstance(event);
-	}
-
-	@Override
-	public void listen(InsertEvent event) {
+	public void listen(SumkEvent ev) {
+		if(!InsertEvent.class.isInstance(ev)){
+			return;
+		}
+		InsertEvent event=(InsertEvent)ev;
 		try {
 			PojoMeta pm = PojoMetaHolder.getTableMeta(event.getTable());
 			List<Map<String, Object>> list = event.getPojos();
