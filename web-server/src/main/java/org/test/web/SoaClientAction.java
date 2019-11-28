@@ -39,7 +39,7 @@ public class SoaClientAction {
 	// http://localhost:8081/rest/echoFromRpc?data={"name":"游夏"}
 	@Web
 	public String echoFromRpc(String name) {
-		String ret = Rpc.call("echo", name);
+		String ret = Rpc.call("a.b.c", name);
 		return S.json.fromJson(ret, String.class);
 	}
 }
