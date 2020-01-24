@@ -54,7 +54,6 @@ public class DemoAction {
 	}
 	
 	/*
-	 * 需要打开s.redis.default,session=127.0.0.1的注释才能用
 	 * http://localhost:8081/rest/incrInRedis?data={"name":"test"}
 	 */
 	@Web
