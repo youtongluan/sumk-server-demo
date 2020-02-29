@@ -20,7 +20,7 @@ public class DemoAction {
 
 	// http://localhost:8081/rest/info?data={"name":"张三","age":23}
 	@Web
-	public String info(@Param(required=true,cnName="名字") String name, Integer age) {
+	public String info(@Param("名字") String name, Integer age) {
 		return "名字:"+name+",年龄:"+age;
 	}
 	
@@ -49,7 +49,7 @@ public class DemoAction {
 	 * 在app.properties中修改test的值，过会儿再访问上述地址，可以看到返回值变化
 	 */
 	@Web
-	public String appInfo(@Param(required=true,cnName="名字") String name) {
+	public String appInfo(@Param("名字") String name) {
 		return AppInfo.get(name);
 	}
 	

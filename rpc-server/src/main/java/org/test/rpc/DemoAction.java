@@ -14,7 +14,7 @@ import org.yx.util.SeqUtil;
 public class DemoAction {
 
 	@Soa("a.b.c")
-	public String echo(@Param(required=true,cnName="名字") String name) {
+	public String echo(@Param(required=true,value="名字") String name) {
 		return "你好 "+name;
 	}
 	
