@@ -30,7 +30,7 @@ public class SoaClientAction {
 		String ret = Rpc.create("fillStudent").callback(r -> {
 			Log.get(SoaClientAction.class).info("rpc返回的结果是:{}", r.json());
 		}).paramInArray(student).execute().getOrException();
-		Student s2 = S.json.fromJson(ret, Student.class);
+		Student s2 = S.json().fromJson(ret, Student.class);
 		Log.get(this.getClass()).info("rpc返回的结果是:{}", ret);
 		DB.insert(s2).execute();
 		return s2;
@@ -40,6 +40,6 @@ public class SoaClientAction {
 	@Web
 	public String echoFromRpc(String name) {
 		String ret = Rpc.call("a.b.c", name);
-		return S.json.fromJson(ret, String.class);
+		return S.json().fromJson(ret, String.class);
 	}
 }

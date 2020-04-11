@@ -22,7 +22,7 @@ public class DemoAction {
 	public Student fillStudent(Student student) {
 		student.setId(SeqUtil.next());
 		student.setLastUpdate(new Date());
-		Log.get(this.getClass()).info(S.json.toJson(student));
+		Log.get(this.getClass()).info(S.json().toJson(student));
 		return student;
 	}
 	
