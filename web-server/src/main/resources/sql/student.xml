@@ -2,11 +2,13 @@
 <!DOCTYPE sdb SYSTEM "https://youtongluan.github.io/sumk/sql.dtd">
 <sdb namespace="student">
 <sql id="select">
-	select id,name,age,last_update as lastUpdate from student where 1=1
-	<if test="id">and id = #{id}</if>
-	<if test="name" falseby="empty">and name= #{name}</if><!-- 空字符串会被过滤掉，不作为查询条件 -->
-	<if test="age">and age= #{age}</if>
-	<if test="lastUpdate">and last_update= #{lastUpdate}</if>
+	select id,name,age,last_update as lastUpdate from student
+	<items open="where" separator="AND">
+		<if test="id">id = #{id}</if>
+		<if test="name" falseby="empty">name= #{name}</if><!-- 空字符串会被过滤掉，不作为查询条件 -->
+		<if test="age">age= #{age}</if>
+		<if test="lastUpdate">last_update= #{lastUpdate}</if>
+	</items>
 </sql>
 <sql id="selectByIds">
 	select id,name,age,last_update as lastUpdate from student 
