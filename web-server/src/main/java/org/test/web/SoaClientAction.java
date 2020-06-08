@@ -2,9 +2,11 @@ package org.test.web;
 
 import java.util.Date;
 
+import org.test.action.HelloAction;
 import org.test.pojo.Student;
 import org.yx.annotation.Bean;
 import org.yx.annotation.Box;
+import org.yx.annotation.Inject;
 import org.yx.annotation.http.Web;
 import org.yx.db.DB;
 import org.yx.log.Log;
@@ -19,6 +21,9 @@ import org.yx.util.S;
 @Bean
 public class SoaClientAction {
 
+	@Inject
+	private HelloAction helloAction;
+	
 	// http://localhost:8081/rest/insertStudent?data={"name":"游夏","age":20}
 	@Web
 	@Box
@@ -41,5 +46,16 @@ public class SoaClientAction {
 	public String echoFromRpc(String name) {
 		String ret = Rpc.call("a.b.c", name);
 		return S.json().fromJson(ret, String.class);
+	}
+	
+	// http://localhost:8081/rest/echo/by/intf
+	@Web("echo/by/intf")
+	public String echoByIntf() {
+		/*
+		 * 不需要对返回值做json处理，如果返回的是泛型，要做如下处理（只要全局做一次就可以）：
+		 * 比如返回List<SumkDate>，就要将这个类型进行注册 
+		 * JsonTypes.registe(new TypeToken<List<SumkDate>>(){}.getType());
+		 */
+		return this.helloAction.reply("接口方式的微服务");
 	}
 }
