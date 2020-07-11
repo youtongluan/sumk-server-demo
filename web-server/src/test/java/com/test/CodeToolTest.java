@@ -10,7 +10,7 @@ public class CodeToolTest {
 	//要在bean生成之后
 	@Test
 	public void generateDao(){
-		CodeTool.generateDao(Student.class);
+		CodeTool.generateDao(false,Student.class);
 	}
 	
 	@Test
