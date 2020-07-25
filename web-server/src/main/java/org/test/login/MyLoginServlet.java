@@ -14,21 +14,21 @@ import org.yx.log.Log;
 public class MyLoginServlet extends AbstractLoginServlet {
 
 	@Box
-	protected LoginObject login(String token, String user, HttpServletRequest req) {
+	protected LoginObject login(String token, String userName, HttpServletRequest req) {
 		String password = req.getParameter("password");
 		String validCode = req.getParameter("code");
-		Log.get(this.getClass()).info("用户登录，user:{},password:{},code:{}",user,password,validCode);
+		Log.get(this.getClass()).info("用户登录，user:{},password:{},code:{}",userName,password,validCode);
 		if (!"9999".equals(validCode)) {
-			return LoginObject.error("验证码错误");
+			return LoginObject.fail("验证码错误");
 		}
-		if ("admin".equals(user) && "123456".equals(password)) {
+		if ("admin".equals(userName) && "123456".equals(password)) {
 			SessionObject so = new SessionObject();
 			so.setLoginTime(System.currentTimeMillis());
 			so.setUserId("admin");
 			return LoginObject.success(null, so);
 		}
 
-		return LoginObject.error("用户名或密码错误");
+		return LoginObject.fail("用户名或密码错误");
 	}
 
 }
