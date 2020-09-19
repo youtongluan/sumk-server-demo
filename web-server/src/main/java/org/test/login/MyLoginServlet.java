@@ -21,10 +21,10 @@ public class MyLoginServlet extends AbstractLoginServlet {
 		if (!"9999".equals(validCode)) {
 			return LoginObject.fail("验证码错误");
 		}
-		if ("admin".equals(userName) && "123456".equals(password)) {
+		if ("123456".equals(password)) {
 			SessionObject so = new SessionObject();
 			so.setLoginTime(System.currentTimeMillis());
-			so.setUserId("admin");
+			so.setUserId(userName);
 			return LoginObject.success(null, so);
 		}
 
