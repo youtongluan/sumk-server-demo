@@ -11,6 +11,8 @@ public class UserAction {
 	// http://localhost:8081/rest/userInfo
 	@Web(requireLogin=true)
 	public String userInfo() {
-		return "用户id："+WebSessions.getUserObject(SessionObject.class).getUserId();
+		//这个方式可以获取到session对象。可以继承SessionObject来扩展字段
+		SessionObject session=WebSessions.getUserObject(SessionObject.class);
+		return "用户id："+session.getUserId();
 	}
 }

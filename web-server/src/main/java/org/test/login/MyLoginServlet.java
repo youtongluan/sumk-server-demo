@@ -23,7 +23,6 @@ public class MyLoginServlet extends AbstractLoginServlet {
 		}
 		if ("123456".equals(password)) {
 			SessionObject so = new SessionObject();
-			so.setLoginTime(System.currentTimeMillis());
 			so.setUserId(userName);
 			return LoginObject.success(null, so);
 		}
