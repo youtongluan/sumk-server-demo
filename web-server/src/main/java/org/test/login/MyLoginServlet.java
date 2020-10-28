@@ -24,7 +24,7 @@ public class MyLoginServlet extends AbstractLoginServlet {
 		if ("123456".equals(password)) {
 			SessionObject so = new SessionObject();
 			so.setUserId(userName);
-			return LoginObject.success(null, so);
+			return LoginObject.success(userName+"登录成功", so);
 		}
 
 		return LoginObject.fail("用户名或密码错误");
