@@ -3,7 +3,7 @@ package org.test.login;
 import org.yx.annotation.Bean;
 import org.yx.annotation.http.Web;
 import org.yx.http.user.SessionObject;
-import org.yx.http.user.WebSessions;
+import org.yx.util.WebUtil;
 
 @Bean
 public class UserAction {
@@ -12,7 +12,7 @@ public class UserAction {
 	@Web(requireLogin=true)
 	public String userInfo() {
 		//这个方式可以获取到session对象。可以继承SessionObject来扩展字段
-		SessionObject session=WebSessions.getUserObject(SessionObject.class);
+		SessionObject session=WebUtil.getUserObject(SessionObject.class);
 		return "用户id："+session.getUserId();
 	}
 }

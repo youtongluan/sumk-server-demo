@@ -11,7 +11,7 @@ import org.yx.annotation.Param;
 import org.yx.annotation.http.Web;
 import org.yx.conf.AppInfo;
 import org.yx.db.DB;
-import org.yx.db.mapper.SDB;
+import org.yx.db.SDB;
 import org.yx.redis.RedisPool;
 import org.yx.util.SumkDate;
 
