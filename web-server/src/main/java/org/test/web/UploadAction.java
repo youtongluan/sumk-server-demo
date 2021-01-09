@@ -7,7 +7,7 @@ import org.yx.annotation.http.Upload;
 import org.yx.annotation.http.Web;
 import org.yx.conf.AppInfo;
 import org.yx.http.handler.MultipartItem;
-import org.yx.util.StreamUtil;
+import org.yx.util.IOUtil;
 import org.yx.util.WebUtil;
 
 @Bean
@@ -27,7 +27,7 @@ public class UploadAction {
 		
 		System.out.println(name);
 		MultipartItem part=WebUtil.getPart("file");
-		byte[] bs=StreamUtil.readAllBytes(part.getInputStream(), true);
+		byte[] bs=IOUtil.readAllBytes(part.getInputStream(), true);
 		System.out.println(new String(bs,AppInfo.UTF8));
 		return "上传成功";
 	}
