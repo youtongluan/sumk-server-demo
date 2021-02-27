@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.yx</groupId>
   <artifactId>web-server</artifactId>
-  <version>2.9.8</version>
+  <version>2.9.9</version>
 	<dependencies>
 		<dependency>
 			<groupId>com.github.youtongluan</groupId>
@@ -12,7 +12,7 @@
 		<dependency>
 			<groupId>com.github.youtongluan</groupId>
 			<artifactId>sumk-codetool</artifactId>
-			<version>2.9.8</version>
+			<version>2.9.9</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
