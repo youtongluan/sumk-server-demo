@@ -4,11 +4,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.test.Constants;
 import org.test.pojo.Student;
 import org.yx.annotation.Bean;
 import org.yx.annotation.Box;
+import org.yx.annotation.Inject;
 import org.yx.annotation.Param;
 import org.yx.annotation.http.Web;
+import org.yx.common.listener.EventBus;
 import org.yx.conf.AppInfo;
 import org.yx.db.DB;
 import org.yx.db.SDB;
@@ -18,9 +21,13 @@ import org.yx.util.SumkDate;
 @Bean
 public class DemoAction {
 
+	@Inject(Constants.LISTEN_TYPE)
+	private EventBus bus;
+	
 	// http://localhost:8081/rest/info?data={"name":"张三","age":23}
 	@Web
 	public String info(@Param("名字") String name, Integer age) {
+		bus.publish(name);
 		return "名字:"+name+",年龄:"+age;
 	}
 	

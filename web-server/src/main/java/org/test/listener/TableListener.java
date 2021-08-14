@@ -1,23 +1,29 @@
 package org.test.listener;
 
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
 import org.yx.annotation.Bean;
+import org.yx.common.listener.SumkListener;
+import org.yx.conf.Const;
 import org.yx.db.event.InsertEvent;
-import org.yx.db.listener.DBEventListener;
 import org.yx.db.sql.PojoMeta;
 import org.yx.db.sql.PojoMetaHolder;
-import org.yx.listener.SumkEvent;
 import org.yx.log.Log;
 
 //监听数据表的变更
 @Bean
-public class TableListener implements DBEventListener {
-
+public class TableListener implements SumkListener {
 
 	@Override
-	public void listen(SumkEvent ev) {
+	public Collection<String> acceptType() {
+		return Arrays.asList(Const.LISTENER_DB_MODIFY);
+	}
+	
+	@Override
+	public void listen(Object ev) {
 		if(!InsertEvent.class.isInstance(ev)){
 			return;
 		}
