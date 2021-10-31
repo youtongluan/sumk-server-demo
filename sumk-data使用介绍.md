@@ -81,7 +81,7 @@ where条件分为两大类：addEqual是个集合，每次调用addEqual都会�
 
 ###  排序
 
-* orderByAsc根据参数字段升序排序，参数是java的field，大小写敏感
+* orderByAsc根据参数字段升序排序，参数是java的field
 
 * orderByDesc降序排序。
 
