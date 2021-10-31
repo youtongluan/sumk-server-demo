@@ -36,9 +36,14 @@ List list=select.queryList();
 
 ### where条件
 
-它包含两个层级：第一层级是addEqual组和compare组，他们之间是and关系。在addEqual组内部，他们的第一层级是OR关系，第二层级是and关系。在compare组内部，他们是and关系，但是compare可以通过and()方法扩展出OR分组来。
+where条件分为两大类：addEqual是个集合，每次调用addEqual都会往里面写入一个的addEqual；另一个是compare类型，就是大于、小于、like、in这些比较操作，它还有个特殊方法叫做and()，它支持扩展第三级，甚至使用嵌套方式生成第四级
 
-<table><tr><td rowspan="4">equal集合与compare集合是and关系</td></tr><tr><td rowspan="2">各个equal之间是or关系</td><td rowspan="2">compare之间是and关系，compare包括大于、小于、like、in以及and()方法</td></tr></table>
+<table align="center">
+    <tr><td>第一级</td><td colspan="2" align="center">equal集合与compare集合是and关系</td></tr>
+    <tr><td>第二级</td><td>不同equal之间是or关系</td><td>compare之间是and关系</td></tr>
+    <tr><td>第三级</td><td>单个equal内部各个字段是and关系</td><td>and()方法可以实现OR或者嵌套的效果</td></tr>
+</table>
+
 
 
 ### addEqual方法：
