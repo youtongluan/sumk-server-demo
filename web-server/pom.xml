@@ -2,12 +2,17 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.yx</groupId>
   <artifactId>web-server</artifactId>
-  <version>2.10.2</version>
+  <version>3.1.0</version>
 	<dependencies>
 		<dependency>
 			<groupId>com.github.youtongluan</groupId>
-			<artifactId>sumk-log</artifactId>
+			<artifactId>sumk</artifactId>
 			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.github.youtongluan</groupId>
+			<artifactId>sumk-log</artifactId>
+			<version>3.0.0</version>
 		</dependency>
 		<dependency>
 			<groupId>com.github.youtongluan</groupId>
