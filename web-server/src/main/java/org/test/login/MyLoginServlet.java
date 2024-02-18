@@ -3,7 +3,7 @@ package org.test.login;
 import javax.servlet.http.HttpServletRequest;
 
 import org.yx.annotation.Bean;
-import org.yx.annotation.Box;
+import org.yx.annotation.db.Box;
 import org.yx.http.user.AbstractLoginServlet;
 import org.yx.http.user.LoginObject;
 import org.yx.http.user.SessionObject;
@@ -12,8 +12,9 @@ import org.yx.log.Log;
 //登录,http://localhost:8081/login?username=admin&password=123456&code=9999
 @Bean
 public class MyLoginServlet extends AbstractLoginServlet {
-
+	
 	@Box
+	@Override
 	protected LoginObject login(String token, String userName, HttpServletRequest req) {
 		String password = req.getParameter("password");
 		String validCode = req.getParameter("code");

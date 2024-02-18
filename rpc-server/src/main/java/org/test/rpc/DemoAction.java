@@ -6,9 +6,9 @@ import org.test.pojo.Student;
 import org.yx.annotation.Bean;
 import org.yx.annotation.Param;
 import org.yx.annotation.rpc.Soa;
+import org.yx.common.util.S;
+import org.yx.common.util.SeqUtil;
 import org.yx.log.Log;
-import org.yx.util.S;
-import org.yx.util.SeqUtil;
 
 @Bean
 public class DemoAction {

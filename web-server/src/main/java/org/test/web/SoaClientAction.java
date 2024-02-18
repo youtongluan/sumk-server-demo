@@ -5,13 +5,13 @@ import java.util.Date;
 import org.test.action.HelloAction;
 import org.test.pojo.Student;
 import org.yx.annotation.Bean;
-import org.yx.annotation.Box;
 import org.yx.annotation.Inject;
+import org.yx.annotation.db.Box;
 import org.yx.annotation.http.Web;
+import org.yx.common.util.S;
 import org.yx.db.DB;
 import org.yx.log.Log;
 import org.yx.rpc.client.Rpc;
-import org.yx.util.S;
 /*
  * 因为下列接口使用了微服务，要访问下列接口，需要做以下操作：
  * 1、启动zookeeper

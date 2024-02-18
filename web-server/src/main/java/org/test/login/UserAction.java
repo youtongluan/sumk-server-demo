@@ -1,8 +1,8 @@
 package org.test.login;
 
 import org.yx.annotation.Bean;
+import org.yx.http.WebUtil;
 import org.yx.http.user.SessionObject;
-import org.yx.util.WebUtil;
 
 @Bean
 public class UserAction {
