@@ -18,7 +18,7 @@ public class LockTest {
 	
 	@Test
 	public void test() throws InterruptedException {
-		SumkServer.startAsTool();
+		SumkServer.startAsTool(null);
 		final int count=200;
 		CountDownLatch counter=new CountDownLatch(count);
 		long time=System.currentTimeMillis();

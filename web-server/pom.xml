@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.yx</groupId>
   <artifactId>web-server</artifactId>
-  <version>4.1.0</version>
+  <version>4.2.0</version>
 	<dependencies>
 		<dependency>
 			<groupId>com.github.youtongluan</groupId>
