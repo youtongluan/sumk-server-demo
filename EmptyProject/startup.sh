@@ -1,5 +1,6 @@
 #! /bin/bash
 opp="-Xmx256m -Xss256k"
+# use your start class
 main_class=org.yx.main.SumkServer
 
 
