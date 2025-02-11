@@ -12,6 +12,8 @@
 
 ## 如何查看演示结果
 
+如果只是想看演示，可以通过这个地址进行查看： [http://120.55.49.121:9090/](http://120.55.49.121:9090/)
+
 使用下列url就可以访问rest接口
 
 - http://localhost:8081/rest/insertStudent?data={"name":"游夏","age":20}
@@ -36,8 +38,6 @@
 
 http://localhost:8081/_sumk_monitor?sign=helloworld&server=1&statis=1&system=1&jvm=1&threadpool=1&&localSessions=1&db.cache=1&datasource=sumk&rpcData=1
 
-
-
 如果不想看哪个监控信息，只要将值设为0即可
 
 #### web接口信息
@@ -46,13 +46,9 @@ http://localhost:8081/_sumk_acts?sign=helloworld&mode=http&pretty=1
 
 支持模糊搜索，比如在参数里增加_name=app表示搜索接口名包含app的rest接口
 
-
-
 ### bean信息
 
 http://localhost:8081/_sumk_acts?sign=helloworld&mode=beans.full
-
-
 
 ## sumk文档集合
 
